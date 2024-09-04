@@ -23,7 +23,9 @@ public class Product {
     @Column(name = "price", nullable = false)
     private Double price;
 
-    /** The inventory of the product. */
+    /**
+     * The inventory of the product.
+     */
     @OneToOne(mappedBy = "product", cascade = CascadeType.REMOVE, optional = false, orphanRemoval = true)
     private Inventory inventory;
 
@@ -34,6 +36,7 @@ public class Product {
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
+
     public Long getId() {
         return id;
     }
@@ -73,5 +76,6 @@ public class Product {
     public void setPrice(Double price) {
         this.price = price;
     }
+}
 
 
