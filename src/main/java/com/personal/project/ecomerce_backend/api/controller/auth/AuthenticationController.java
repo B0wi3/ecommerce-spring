@@ -5,7 +5,6 @@ import com.personal.project.ecomerce_backend.exception.UserAlreadyExistsExceptio
 import com.personal.project.ecomerce_backend.model.LocalUser;
 import com.personal.project.ecomerce_backend.service.UserService;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

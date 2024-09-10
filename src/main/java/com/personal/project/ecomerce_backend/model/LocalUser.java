@@ -1,11 +1,12 @@
 package com.personal.project.ecomerce_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.*;
 
 @Entity
-@Table(name = "Local_user")
+@Table(name = "local_user")
 public class LocalUser {
 
     @Id
@@ -13,13 +14,10 @@ public class LocalUser {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private Long getId() { return id; }
-
-    private void setId(Long id) { this.id = id; }
-
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
+    @JsonIgnore
     @Column(name = "password", nullable = false, length = 1000)
     private String password;
 
@@ -33,8 +31,13 @@ public class LocalUser {
     private String lastName;
 
     /** Addresses associated with the user. */
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
 
     public List<Address> getAddresses() {
         return addresses;
